@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             document.title = data.title;
-            document.querySelector(".navbar-brand").textContent = data.navbar.brand;
+            document.getElementById("navbarBrand").textContent = data.navbar.brand;
             document.querySelector('a[href="#about"]').textContent = data.navbar.about;
             document.querySelector('a[href="#services"]').textContent = data.navbar.services;
             document.querySelector('a[href="#portfolio"]').textContent = data.navbar.portfolio;
@@ -44,4 +44,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.querySelector(".footer .small").innerHTML = data.footer.text;
         });
+
+    const languageDropdown = document.getElementById('languageDropdown');
+    const languageLinks = languageDropdown.querySelectorAll('.dropdown-item');
+
+    languageLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const lang = this.getAttribute('href').split('=')[1];
+            setLanguage(lang);
+        });
+    });
+
+    function setLanguage(lang) {
+        window.location.search = `?lang=${lang}`;
+    }
 });
