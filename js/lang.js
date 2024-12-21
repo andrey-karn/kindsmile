@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector('a[href="#contact"]').textContent = data.navbar.contact;
             document.querySelector('#languageDropdown').textContent = data.navbar.language;
             document.querySelector('a[href="?lang=en"]').textContent = data.navbar.english;
-            document.querySelector('a[href="?lang=es"]').textContent = data.navbar.russian;
+            document.querySelector('a[href="?lang=ru"]').textContent = data.navbar.russian;
 
             document.querySelector(".masthead h1").textContent = data.masthead.heading;
             document.querySelector(".masthead p").textContent = data.masthead.subheading;
